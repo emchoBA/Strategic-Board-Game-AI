@@ -524,6 +524,7 @@ def main():
         first_move = ai_move(game_board, GLOBAL_DEPTH, restricted_positions=restricted)
         if first_move:
             moves_left -= 1  # AI made a move so decrement moves left
+            print("Moves left: ", moves_left)
             restricted.add(first_move[1])  # AI can't move the same piece again this turn
 
             if moves_left <= 0:
@@ -566,6 +567,7 @@ def main():
             if final_pos:
 
                 moves_left -= 1  # Human made a move so decrement moves left
+                print("Moves left: ", moves_left)
 
                 revert_fn = check_death(game_board, *final_pos)
                 revert_fn()  # finalize captures
@@ -601,6 +603,7 @@ def main():
             move_result = ai_move(game_board, GLOBAL_DEPTH, restricted_positions=restricted)
             if move_result:
                 moves_left -= 1  # AI made a move so decrement moves left
+                print("Moves left: ", moves_left)
                 restricted.add(move_result[1])  # AI can't move the same piece again this turn
 
                 if moves_left <= 0:
